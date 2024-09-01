@@ -23,7 +23,8 @@ function versus(){
     let entrada = parseInt(prompt(`
         Numero de vidas del usuario: `+ vidasUsuario +`
         Numero de vidas de la maquina: `+ vidasMaquina +`
-        Ingresa un numero del `+ minimoMaquina +` al `+ maximoMaquina +`
+        
+        Para adivinar ingresa un numero del `+ minimoMaquina +` al `+ maximoMaquina +`
         `));
     
     let numeroMaquina = generarNumero(minimoMaquina,maximoMaquina);
@@ -32,14 +33,14 @@ function versus(){
     if (entrada == numeroMaquina){
         vidasMaquina = vidasMaquina - 1;
         alert(`
-            El numero es: `+ numeroMaquina +`
+            El numero secreto es: `+ numeroMaquina +`
             Acertaste
             Vidas de la maquina se redujo a `+ vidasMaquina +`
             `);
     } else {
         vidasUsuario = vidasUsuario -1;
         alert(`
-            El numero es: `+ numeroMaquina +`
+            El numero secreto es: `+ numeroMaquina +`
             Fallaste
             Vidas del usuario se redujo a `+ vidasUsuario +`
             `);
