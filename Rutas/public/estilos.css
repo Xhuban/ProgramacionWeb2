@@ -1,0 +1,182 @@
+#indice{
+    background-color: rgb(42, 38, 38);
+    color: rgb(205, 196, 182);
+
+    font-size: 5rem;
+}
+
+#indice #titulo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(57, 49, 49);
+}
+
+#indice h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#botones{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 19rem;
+}
+
+#botones button{
+    padding: 2rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    border: 0;
+    background-color: rgb(141, 135, 131);
+    color: rgb(235, 223, 204);
+}
+
+#botones button:hover{
+    color: rgb(219, 205, 182);
+    background-color: rgb(124, 116, 110);
+}
+
+#botones button:active{
+    color: aliceblue;
+}
+
+.regreso-indice{
+    padding: 2rem;
+    margin-left: 2rem;
+    border: 0;
+    color:rgb(231, 221, 207);
+    background-color: rgb(105, 86, 73);
+}
+
+.regreso-indice:hover{
+    color:rgb(216, 208, 196);
+    background-color: rgb(87, 71, 61);
+}
+
+.regreso-indice:active{
+    color: aliceblue;
+}
+/*-------------------Calculadora---------------------*/
+
+.body-calculadora{
+    background-color: rgb(190, 145, 108);
+}
+
+.titulo-calculadora{
+    margin-top: 3rem;
+    text-align: center;
+    color: aliceblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.calculadora{
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    height: 26rem;
+    width: 20rem;
+    margin: 3.5rem auto;
+    border-radius: 5px;
+    background-color: cadetblue;
+    padding-bottom: 1rem;
+    margin-bottom: 4rem;
+}
+
+
+
+.calculadora input[type="button"]{
+    width: 60px;
+    height: 60px;
+    margin: 6px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    cursor: pointer;
+    border: 0;
+}
+
+.calculadora #pantalla{
+    margin-bottom: .5rem;
+    width: 100%;
+    height: 4rem;
+    padding-left: 1rem;
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*--------------------Generador de QR--------------------*/
+
+.titulo-qr{
+    color: aliceblue;
+    margin: 3rem;
+}
+
+.generador-qr{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(190, 145, 108);
+    color: aliceblue;
+}
+
+.formulario-qr{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: #EFEFEF4D;
+    padding: 3rem;
+}
+
+.formulario-qr input{
+    margin-bottom: 1rem;
+    margin-top: .2rem;
+    padding: .5rem;
+    border: 0;
+    border-radius: 16px;
+    background-color: aliceblue;
+}
+
+#qr{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.regreso-indice-qr{
+    padding: 2rem;
+    margin-top: 2rem;
+    border: 0;
+    color:rgb(231, 221, 207);
+    background-color: rgb(105, 86, 73);
+}
+
+.regreso-indice-qr:hover{
+    color:rgb(216, 208, 196);
+    background-color: rgb(87, 71, 61);
+}
+
+.regreso-indice-qr:active{
+    color: aliceblue;
+}
+
+
+.botones-qr button{
+    padding: 2rem;
+    margin-top: 1rem;
+    border: 0;
+    color:rgb(231, 221, 207);
+    background-color: rgb(105, 86, 73);
+}
+
+.botones-qr button:hover{
+    color:rgb(216, 208, 196);
+    background-color: rgb(87, 71, 61);
+}
+
+.botones-qr button:active{
+    color: aliceblue;
+}
