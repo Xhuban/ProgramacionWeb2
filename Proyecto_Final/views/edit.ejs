@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <title>Editar un usuario</title>
+</head>
+<body class="body-editar">
+    
+    <div class="titulos">
+        <h1>Editar un usuario</h1>
+    </div>
+
+    <table class="tablas">
+        <tr>
+            <th>Usuario Actual</th>
+            <th>Email Actual</th>
+        </tr>
+
+        <tr>
+            <td><%=usuario.usuario %></td>
+            <td><%=usuario.email %></td>
+        </tr>
+    </table>
+
+    <form class="formularios" action="/edit/<%=usuario.indice %>" method="post">
+        <label for="usuario">Nuevo Usuario</label>
+        <input type="text" id="usuario" name="usuario" required>
+
+        <label for="email">Nuevo Email</label>
+        <input type="text" id="email" name="email" required>
+
+        <button class="botones" type="submit">Enviar <img class="ico-boton" src="/img/send.png" alt=""></button>
+        <button class="botones" onclick="location.href='/'">Cancelar <img class="ico-boton" src="/img/close.png" alt=""></button>
+    </form>
+
+</body>
+</html>

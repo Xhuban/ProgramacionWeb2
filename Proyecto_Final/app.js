@@ -1,16 +1,24 @@
+//Importación de las dependencias a usar
 const express = require('express');
 const mysql = require('mysql2');
 const bodyparser = require('body-parser');
 
+//Intancia de express
 const app = express();
 
+//Puerto de escucha del servidor
 const port = 3008;
 
+//Uso de bodyparser
 app.use(bodyparser.urlencoded({extended:false}));
 
+//Carpeta de archivos estáticos
+app.use(express.static('public'));
+
+//Uso de ejs para plantillas de estructura
 app.set('view engine', 'ejs');
 
-//credenciales para db
+//Credenciales para la base de datos
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -20,7 +28,7 @@ const db = mysql.createConnection({
 });
 
 
-//conexion a la db
+//Conexion a la base de datos
 db.connect(err=>{
     if(err){
         console.log(`Error al momento de hacer conexion: ${err}`);
@@ -30,11 +38,13 @@ db.connect(err=>{
 });
 
 
-//server inicio
+//Inicialización del servidor
 app.listen(port, ()=>{
     console.log(`El servidor está en escucha desde http://localhost:${port}`)
 });
 
+
+//Indice
 app.get('/',(req,res)=>{
     //Consulta a la base de datos
     const query = 'SELECT * FROM usuarios';
@@ -51,7 +61,10 @@ app.get('/',(req,res)=>{
 });
 
 
-//agregar usuario
+//Agregar usuario
+app.get('/add',(req,res)=>{
+    res.render('add');
+});
 
 app.post('/add',(req,res)=>{
     const {usuario,email} = req.body;
@@ -61,14 +74,13 @@ app.post('/add',(req,res)=>{
             console.error(`Error al insertar en usuarios: Codigo ${err}`);
             res.send(`Error`);
         } else {
-            res.render('add', {usuarios:results});
+            res.redirect('/');
         }
     });
 });
 
 
-//editar usuario
-
+//Editar usuario
 app.get('/edit/:indice',(req,res)=>{
     const {indice} = req.params;
     const query = 'SELECT * FROM usuarios WHERE indice = ?';
@@ -77,14 +89,32 @@ app.get('/edit/:indice',(req,res)=>{
             console.error(`Error en la DB`);
             res.send(`Error en la DB`);
         } else {
-            res.render('edit',{usuario:results[0]});
+            if (results.length > 0){
+                res.render('edit',{usuario:results[0]});
+            } else {
+                res.send(`No se encontró al usuario con índice ${indice}`)
+            }
+            
+        }
+    });
+});
+
+app.post('/edit/:indice',(req,res)=>{
+    const {usuario,email} = req.body;
+    const {indice} = req.params;
+    const query = 'UPDATE usuarios SET usuario = ? , email = ? WHERE indice = ?';
+    db.query(query,[usuario,email,indice],(err,results)=>{
+        if(err){
+            console.error(`Error al editar en usuarios: Codigo ${err}`);
+            res.send(`Error`);
+        } else {
+            res.redirect('/');
         }
     });
 });
 
 
-//eliminar usuario
-
+//Eliminar usuario
 app.get('/delete/:indice',(req,res)=>{
     const {indice} = req.params;
     const query = 'DELETE FROM usuarios WHERE indice = ?';
